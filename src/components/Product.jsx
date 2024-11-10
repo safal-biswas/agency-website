@@ -1,4 +1,7 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../variants'
+
 import tesla from '../assets/tesla.png'
 import productIcon1 from '../assets/productLogo1.png'
 import productIcon2 from '../assets/productLogo2.png'
@@ -11,7 +14,13 @@ export default function Product() {
     return (
         <div>
             <div className='bg-neutralSilver px-4 lg:px-32 py-8 max-w-screen-2xl mx-auto'>
-                <div className='w-4/5 flex flex-col items-center mx-auto md:flex-row gap-8 md:gap-12'>
+                <motion.div
+                    variants={fadeIn("up", 0.2)}
+                    initial="hidden"
+                    whileInView={'show'}
+                    viewport={{ once: true, amount: 0.7 }}
+
+                    className='w-4/5 flex flex-col items-center mx-auto md:flex-row gap-8 md:gap-12'>
                     <div><img src={tesla} alt="" /></div>
                     <div className='md:w-3/4'>
                         <p className='text-neutralGray text-sm text-justify mb-4'>Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.</p>
@@ -33,7 +42,7 @@ export default function Product() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div >
     )

@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../variants'
 
 import logo2 from '../assets/Logo2.png'
 import logo3 from '../assets/Logo3.png'
@@ -22,7 +24,12 @@ export default function Services() {
 
     return (
         <>
-            <div className='text-center my-8'>
+            <motion.div
+                variants={fadeIn("up", 0.2)}
+                initial="hidden"
+                whileInView={'show'}
+                viewport={{ once: true, amount: 0.7 }}
+                className='text-center my-8'>
                 <h2 className='text-4xl text-neutralDGray font-semibold mb-2'>Our Clients</h2>
                 <p className='text-neutralDGray mb-2'>We have been working with some Fortune 500+ clients</p>
 
@@ -35,14 +42,26 @@ export default function Services() {
                     <img src={logo6} alt="" />
                     <img src={logo7} alt="" />
                 </div>
-            </div>
+            </motion.div>
 
             {/* services cards */}
-            <div className='mt-20 md:w-3/4 sm:w-1/2 mx-auto text-center'>
+            <motion.div
+                variants={fadeIn("left", 0.2)}
+                initial="hidden"
+                whileInView={'show'}
+                viewport={{ once: true, amount: 0.7 }}
+                className='mt-20 md:w-3/4 sm:w-1/2 mx-auto text-center'>
                 <h2 className='text-4xl text-neutralDGray font-semibold'>Manage your entire community</h2>
                 <h2 className='text-4xl text-neutralDGray font-semibold mb-3'>in a single system</h2>
                 <p className='text-neutralDGray mb-2'>Who is Creativeitem suitable for?</p>
+            </motion.div>
 
+            <motion.div
+                variants={fadeIn("up", 0.2)}
+                initial="hidden"
+                whileInView={'show'}
+                viewport={{ once: true, amount: 0.7 }}
+                className='mt-20 md:w-3/4 sm:w-1/2 mx-auto text-center'>
                 {/* cards */}
                 <div className='flex items-center flex-wrap sm:gap-y-5'>
                     {
@@ -58,8 +77,7 @@ export default function Services() {
                         )
                     }
                 </div>
-
-            </div>
+            </motion.div>
         </>
     )
 }
